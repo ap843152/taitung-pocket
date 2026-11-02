@@ -14,20 +14,37 @@
 <main>
   <section class="intro"><div><p class="eyebrow">一點新鮮，剛好在附近。</p><h1>下一站，<br class="mobile-break">去一間沒去過的店。</h1><p class="sub">早午餐、好好吃頓飯，或留一個下午給咖啡和甜點。<br>把想去的地方收進口袋，等你們一起出發。</p></div><div class="intro-art" aria-hidden="true"><span class="orbit">台東<br><small>慢慢挑，慢慢走</small></span><span class="stamp">GOOD FOOD<br>GOOD COMPANY</span></div></section>
   <section class="explore" aria-label="找店工具">
-    <div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="query" type="search" placeholder="想找哪間店、哪條街，或什麼樣的氣氛？" aria-label="搜尋店名、地址或特色"></label><button id="locate" class="location">⌖ 我的位置</button></div>
+    <div class="mode-switch" aria-label="找店方式"><button id="mode-browse" aria-pressed="true">自己找店</button><button id="mode-lunch" aria-pressed="false">幫我選午餐 ↗</button></div>
+    <section id="lunch-panel" aria-label="午餐需求" hidden>
+      <h2>這一餐，想怎麼吃？</h2><p class="hint">免費辨識常見語句，條件可以改。依菜單找候選，不是即時排隊或車程預測。</p>
+      <div class="search-row"><label class="search"><input id="lunch-query" type="text" maxlength="300" placeholder="午餐簡單吃，100元內，1小時結束，不用等太久" aria-label="用一句話描述午餐需求"></label><button id="lunch-parse" class="primary">幫我挑</button></div>
+      <p id="lunch-issues" class="hint lunch-issues" role="status" hidden></p>
+      <div class="lunch-fields">
+        <label>想吃什麼<select id="lunch-type"><option value="simple">麵、飯或便當</option><option value="noodles">麵食</option><option value="rice">飯類</option><option value="bento">便當</option></select></label>
+        <label>每人預算上限（元）<input id="lunch-budget" type="number" min="1" max="10000" value="100" inputmode="numeric"></label>
+        <label>出發到吃完（分鐘）<input id="lunch-minutes" type="number" min="1" max="600" value="60" inputmode="numeric"></label>
+        <label>出發時間（台灣）<select id="lunch-time-mode"><option value="now">現在出發</option><option value="custom">指定時間</option></select></label>
+        <label id="lunch-time-wrap" hidden>指定出發時間<input id="lunch-departure" type="datetime-local"></label>
+        <label class="lunch-check"><input id="lunch-short-wait" type="checkbox" checked>希望少等候</label>
+      </div>
+      <fieldset class="lunch-exclusions"><legend>不想吃</legend><label><input id="exclude-noodles" type="checkbox">麵食</label><label><input id="exclude-rice" type="checkbox">飯類</label><label><input id="exclude-bento" type="checkbox">便當</label></fieldset>
+      <p class="hint">交通方式：騎機車。總時間包含交通、停車、候餐與用餐；目前無法確認實際所需時間。</p>
+      <button id="lunch-apply" class="quiet">依上方條件重新挑選</button>
+    </section>
+    <div class="search-row"><label id="browse-query-wrap" class="search"><span aria-hidden="true">⌕</span><input id="query" type="search" placeholder="想找哪間店、哪條街，或什麼樣的氣氛？" aria-label="搜尋店名、地址或特色"></label><button id="locate" class="location">⌖ 我的位置</button></div>
     <div class="category-row" id="categories" aria-label="店家分類"></div>
     <div class="filter-row">
-      <label>營業時間<select id="time-mode"><option value="any">不限時間</option><option value="now">現在可前往</option><option value="custom">指定日期時間</option></select></label>
+      <label id="browse-time-wrap">營業時間<select id="time-mode"><option value="any">不限時間</option><option value="now">現在可前往</option><option value="custom">指定日期時間</option></select></label>
       <label id="custom-time-wrap" hidden>台灣時間<input id="custom-time" type="datetime-local"></label>
       <label>口袋名單<select id="saved"><option value="all">所有店家</option><option value="saved">只看已收藏</option></select></label>
       <label>造訪紀錄<select id="visited"><option value="all">不限</option><option value="no">尚未標記去過</option><option value="yes">已去過</option></select></label>
-      <label>附近範圍<select id="radius" disabled><option value="">不限距離</option><option value="1">1 公里內</option><option value="3">3 公里內</option><option value="5">5 公里內</option></select></label>
+      <label id="browse-radius-wrap">附近範圍<select id="radius" disabled><option value="">不限距離</option><option value="1">1 公里內</option><option value="3">3 公里內</option><option value="5">5 公里內</option></select></label>
       <button id="reset" class="quiet reset">清除篩選</button>
     </div>
     <p id="location-message" class="hint" role="status">以台東市中心為起點。按「我的位置」後，才會請求定位與顯示直線距離。</p>
   </section>
   <div class="result-toolbar"><div><h2>這次，想去哪裡？ <span id="count">載入中</span></h2><p id="active-summary" class="hint"></p></div><div class="view-switch" aria-label="顯示方式"><button id="view-list" aria-pressed="true">清單</button><button id="view-map" aria-pressed="false">地圖</button></div></div>
-  <section class="workspace"><div id="results" tabindex="-1" aria-label="店家清單"><div id="cards" class="cards"></div><div id="empty" class="empty" hidden><span>⌕</span><h3>這次的條件，還沒找到店家。</h3><p>試著放寬時間、分類或距離；你的收藏仍會保留。</p><button id="empty-reset" class="primary">清除篩選，重新找找</button></div></div>
+  <section class="workspace"><div id="results" tabindex="-1" aria-label="店家清單"><p id="lunch-result-note" class="lunch-result-note" hidden></p><div id="cards" class="cards"></div><div id="empty" class="empty" hidden><span>⌕</span><h3>這次的條件，還沒找到店家。</h3><p id="empty-message">試著放寬時間、分類或距離；你的收藏仍會保留。</p><button id="empty-reset" class="primary">清除篩選，重新找找</button></div></div>
   <aside class="map-pane" aria-label="店家地圖"><div class="map-top"><span>TAITUNG CITY</span><button id="fit-map" class="quiet">查看全部結果 ⤢</button></div><div id="map"></div><div id="map-message" class="map-message" role="status" hidden></div><div class="map-caption"><span class="dot"></span> 地圖與清單同步 · 點選標記查看店家</div><div id="map-detail" class="map-detail" hidden></div></aside></section>
   <footer><p>每一間，都先留一點期待。</p><small id="data-note"></small><small>營業狀態依收錄時段推算；臨時店休、最後點餐及座位請出發前向店家確認。<br>「尚未標記去過」代表你的紀錄狀態。收藏只保存在此瀏覽器。</small></footer>
 </main>

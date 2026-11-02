@@ -29,7 +29,7 @@ const stamp=new Date().toISOString().replace(/[:.]/g,'-'),snapshot=resolve(root,
 mkdirSync(snapshot,{recursive:true});cpSync(resolve(root,'content'),resolve(snapshot,'content'),{recursive:true});cpSync(resolve(root,'dist'),resolve(snapshot,'dist'),{recursive:true});
 try{
   writeCatalog(next);
-  for(const args of [['scripts/build.mjs'],['--test','tests/core.test.mjs','tests/controller.test.mjs','tests/content.test.mjs']]){const result=spawnSync(process.execPath,args,{cwd:root,stdio:'inherit'});if(result.status!==0)throw new Error('發布前驗收未通過，未推送');}
+  for(const args of [['scripts/build.mjs'],['--test','tests/core.test.mjs','tests/controller.test.mjs','tests/content.test.mjs','tests/lunch.test.mjs']]){const result=spawnSync(process.execPath,args,{cwd:root,stdio:'inherit'});if(result.status!==0)throw new Error('發布前驗收未通過，未推送');}
   const stage=syncPublic(root);
   save('research/staged.json',{stamp,snapshot,stage,batch:batch.entries,catalogHash:digest(next)});
   console.log('已建立可公開的GitHub上傳目錄，尚未推送或部署。');

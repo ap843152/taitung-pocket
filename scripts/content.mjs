@@ -21,6 +21,7 @@ export function validateShop(s,{candidate=false}={}) {
   if(candidate && (typeof s.longIntro!=='string'||[...s.longIntro].length<150||[...s.longIntro].length>300))fail('介紹須為150–300字');
   if(typeof s.longIntro==='string'&&s.longIntro!==s.longIntro.trim())fail('介紹首尾不可有空白，請整理後重新送審');
   if(s.price!==null && typeof s.price!=='string')fail('價格無效');
+  if(s.lunchOptions!==undefined){if(!Array.isArray(s.lunchOptions)||s.lunchOptions.length>30)fail('午餐餐點格式無效');for(const m of s.lunchOptions){if(!m||typeof m.name!=='string'||!m.name.trim()||!['main','side','drink'].includes(m.kind)||!['noodles','rice','bento','other'].includes(m.type)||!Number.isFinite(m.priceTwd)||m.priceTwd<=0||!url(m.sourceUrl)||!s.sources.some(source=>source.url===m.sourceUrl)||!/^\d{4}-\d{2}-\d{2}$/.test(m.checkedAt))fail('午餐餐點缺少有效價格、來源或分類');}}
   return s;
 }
 export function validateCatalog(data){

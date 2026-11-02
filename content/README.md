@@ -8,4 +8,6 @@
 
 修改Markdown後執行 `npm run build` 產生JSON，再 `npm test` 驗證。不要直接編輯產生的shops.json，它會在下次建置時更新。
 
+可選欄位lunchOptions是具體餐點清單：name、kind（main/side/drink）、type（noodles/rice/bento/other）、priceTwd、sourceUrl、checkedAt。來源網址須同時列在sources。推薦只採有查核價的麵、飯、便當主餐；保留具體份量與內用/外帶條件，不從舊price說明文字抽出數字猜測。無此欄位的舊店仍可正常瀏覽。
+
 新內容與修正先在擁有者的本機待審，核准後才進入main；main更新會觸發GitHub Pages發布。Markdown目前只處理純文字介紹，不渲染外部HTML。
