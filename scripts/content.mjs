@@ -19,6 +19,7 @@ export function validateShop(s,{candidate=false}={}) {
   if(s.hours!==null && (!s.hours||Array.from({length:7},(_,i)=>i).some(i=>!Object.hasOwn(s.hours,i)||!day(s.hours[i]))))fail('每週時段無效');
   if(!s.exceptions||Object.entries(s.exceptions).some(([d,v])=>!/^\d{4}-\d{2}-\d{2}$/.test(d)||!day(v)))fail('例外日期無效');
   if(candidate && (typeof s.longIntro!=='string'||[...s.longIntro].length<150||[...s.longIntro].length>300))fail('介紹須為150–300字');
+  if(typeof s.longIntro==='string'&&s.longIntro!==s.longIntro.trim())fail('介紹首尾不可有空白，請整理後重新送審');
   if(s.price!==null && typeof s.price!=='string')fail('價格無效');
   return s;
 }
