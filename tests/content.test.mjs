@@ -6,7 +6,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {loadState,saveState} from '../scripts/state.mjs';
 import {loadCatalog,parseMarkdown,formatMarkdown} from '../scripts/catalog.mjs';
-import {digest,validateCatalog,validateShop,addDraft,decide,mergeApproved} from '../scripts/content.mjs';
+import {digest,contentDigest,validateCatalog,validateShop,addDraft,decide,mergeApproved} from '../scripts/content.mjs';
 const catalog=loadCatalog();
 const fixture=()=>({...structuredClone(catalog.shops[0]),id:'candidate-test',name:'測試候選',address:'臺東市測試路1號',longIntro:'這是測試資料。'.repeat(22)});
 const evidence=s=>[{kind:'government',url:s.sources[0].url,readAt:'2026-11-02',excerpt:'測試支持資料'}];
@@ -19,3 +19,4 @@ test('未知時段保留unknown，跨午夜與例外日期可驗證',()=>{valida
 test('同店可保留歷次發布並提出新修正，ID不變且不重複新增',()=>{const state={entries:[]},s={...fixture(),id:catalog.shops[0].id};const old=addDraft(state,catalog,s,evidence(s),{update:true});decide(old,old.revision,'approved');const next=mergeApproved(catalog,[old]);assert.equal(next.shops.length,catalog.shops.length);old.status='published';const current=addDraft(state,next,{...s,description:'新版'},evidence(s),{update:true});decide(current,current.revision,'approved');assert.equal(mergeApproved(next,[current]).shops.find(x=>x.id===s.id).description,'新版');});
 test('研究紀錄被其他操作更新時拒絕覆寫',()=>{const base=fileURLToPath(new URL('../.runtime/',import.meta.url));mkdirSync(base,{recursive:true});const dir=mkdtempSync(join(base,'state-test-')),path=join(dir,'state.json');try{writeFileSync(path,JSON.stringify({entries:[]}));const a=loadState(path),b=loadState(path);a.value.newRun=true;saveState(path,a.value,a.version);b.value.entries.push({id:'stale'});assert.throws(()=>saveState(path,b.value,b.version),/已被其他操作更新/);assert.equal(loadState(path).value.newRun,true);}finally{rmSync(dir,{recursive:true});}});
 test('Markdown往返保留ID與介紹，損壞檔拒絕',()=>{const s=fixture();assert.deepEqual(parseMarkdown(formatMarkdown(s)),s);assert.throws(()=>parseMarkdown('broken'));assert.throws(()=>parseMarkdown(formatMarkdown(catalog.shops[0]).replace(/"introType": "[^"]+"/,'"introType": "bad"')));});
+test('Markdown鍵順序改變不影響資料比對，實際改稿則不同',()=>{const {longIntro,...rest}=fixture(),s={longIntro,...rest},round=parseMarkdown(formatMarkdown(s));assert.equal(contentDigest(s),contentDigest(round));assert.notEqual(contentDigest(s),contentDigest({...round,longIntro:longIntro+'修改'}));});

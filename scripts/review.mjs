@@ -1,7 +1,7 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {addDraft,decide,digest,mergeApproved,validateCatalog} from './content.mjs';
+import {addDraft,decide,digest,contentDigest,mergeApproved,validateCatalog} from './content.mjs';
 import {loadState,saveState} from './state.mjs';
 import {loadCatalog} from './catalog.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
@@ -22,7 +22,7 @@ if(command==='add'){
 }else if(command==='prepare'){
   const entries=state.entries.filter(e=>e.status==='approved');if(!entries.length)throw new Error('沒有核准的版本');
   const next=mergeApproved(catalog,entries);
-  const batch={createdAt:new Date().toISOString(),base:digest(catalog),entries:entries.map(e=>({id:e.shop.id,revision:e.revision})),catalog:next};
+  const batch={createdAt:new Date().toISOString(),base:contentDigest(catalog),entries:entries.map(e=>({id:e.shop.id,revision:e.revision})),catalog:next};
   mkdirSync(resolve(root,'research/snapshots'),{recursive:true});save('research/prepared.json',batch);
   console.log('已準備核准批次，尚未修改正式資料或部署。');
 }else{throw new Error('用法: list | add <JSON路徑> | approve/reject <ID> <完整revision> | prepare');}

@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/build.mjs
-      - run: node --test tests/core.test.mjs tests/controller.test.mjs tests/content.test.mjs
+      - run: npm test
       - uses: actions/configure-pages@v5
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
       - uses: actions/upload-pages-artifact@v3

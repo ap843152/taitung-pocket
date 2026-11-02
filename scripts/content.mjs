@@ -1,6 +1,9 @@
 import {createHash} from 'node:crypto';
 import {CATEGORIES,CENTER,distanceKm} from '../dist/core.mjs';
 export const digest=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
+// Content equality ignores JSON key order; approval revisions keep their original hash.
+const ordered=value=>Array.isArray(value)?value.map(ordered):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,ordered(value[key])])):value;
+export const contentDigest=value=>digest(ordered(value));
 const fail=message=>{throw new Error(message);};
 const url=value=>{try{return new URL(value).protocol==='https:';}catch{return false;}};
 export function validateShop(s,{candidate=false}={}) {
