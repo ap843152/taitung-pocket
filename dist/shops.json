@@ -1,0 +1,861 @@
+{
+  "checkedAt": "2026-11-02",
+  "coverage": "鐵花新聚落周邊約3公里；此版減量收錄可核對地址與位置的14間店，非完整名錄。",
+  "shops": [
+    {
+      "id": "wild-garden",
+      "name": "野室珈琲 W.G. café",
+      "categories": [
+        "早午餐",
+        "咖啡店",
+        "甜品店"
+      ],
+      "address": "臺東市浙江路350號（美術館水池旁）",
+      "lat": 22.7642899,
+      "lng": 121.1498803,
+      "tags": [
+        "美術館園區",
+        "植物空間",
+        "在地食材"
+      ],
+      "description": "在美術館的綠意裡，留一段時間給早午餐、咖啡與手作甜點。",
+      "hours": null,
+      "exceptions": {},
+      "hoursText": "時間待確認：店家官網頁尾載週三至日10:00–17:00，原政府來源載09:00–17:00，開門時間不一致，暫不納入營業篩選。",
+      "officialUrl": "https://wgcafe.tw/",
+      "sources": [
+        {
+          "label": "政府藝文平台",
+          "url": "https://culture.taitung.gov.tw/facility/野室珈琲臺東美術館藝術主題餐廳"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://maps.google.com/maps?q=野室珈琲+台東市浙江路350號&output=embed"
+        },
+        {
+          "label": "店家官網（本輪發現時間衝突）",
+          "url": "https://wgcafe.tw/"
+        }
+      ],
+      "coordinateSource": "https://maps.google.com/maps?q=野室珈琲+台東市浙江路350號&output=embed",
+      "coordinateNote": "店名與地址相連的來源地圖店家標記，非嵌圖視窗中心。",
+      "price": null,
+      "checkedAt": "2026-11-02",
+      "longIntro": "野室珈琲位在臺東美術館園區、水池旁的空間，官網介紹包含早午餐、咖啡與手作甜點，也把在地食材帶進餐點。若原本就打算走訪美術館，可以先查看店家資訊，考慮把用餐與園區行程排在一起。這份介紹整理自店家官網與政府藝文平台，並非親訪心得，不代表已確認當日菜單、座位或臨時活動。目前兩個來源對開門時間的記載不一致：店家官網頁尾寫十點，政府藝文頁寫九點，因此暫不以時段推算營業，出發前請以店家最新公告或直接詢問為準。"
+    },
+    {
+      "id": "daily-kitchen",
+      "name": "柴米 Daily Kitchen",
+      "categories": [
+        "早午餐",
+        "餐廳"
+      ],
+      "address": "臺東市正氣路406號",
+      "lat": 22.7572223,
+      "lng": 121.1460924,
+      "tags": [
+        "季節食材",
+        "早午餐",
+        "選物"
+      ],
+      "description": "把臺東的季節食材放進餐盤，適合慢慢吃一頓早午餐。",
+      "hours": {
+        "0": [
+          [
+            "09:00",
+            "15:00"
+          ]
+        ],
+        "1": [
+          [
+            "09:00",
+            "15:00"
+          ]
+        ],
+        "2": [
+          [
+            "09:00",
+            "15:00"
+          ]
+        ],
+        "3": [
+          [
+            "09:00",
+            "15:00"
+          ]
+        ],
+        "4": [],
+        "5": [
+          [
+            "09:00",
+            "15:00"
+          ]
+        ],
+        "6": [
+          [
+            "09:00",
+            "15:00"
+          ]
+        ]
+      },
+      "exceptions": {},
+      "hoursText": "慢食台東頁：09:00–15:00，週四休。",
+      "officialUrl": "https://www.facebook.com/DailyKitchen.TAITUNG/",
+      "sources": [
+        {
+          "label": "慢食台東",
+          "url": "https://slowfoodtaitung.tw/restaurant/柴米"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://maps.google.com/maps?q=柴米DailyKitchen+台東市正氣路406號&output=embed"
+        }
+      ],
+      "coordinateSource": "https://maps.google.com/maps?q=柴米DailyKitchen+台東市正氣路406號&output=embed",
+      "coordinateNote": "地址與店名核對 Google Maps 店家資料標記。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "tsao-min",
+      "name": "草民 Tsao Min",
+      "categories": [
+        "早午餐",
+        "餐廳"
+      ],
+      "address": "臺東市強國街256巷23號",
+      "lat": 22.7620994,
+      "lng": 121.1563745,
+      "tags": [
+        "老宅",
+        "原型食材",
+        "早午餐"
+      ],
+      "description": "在市區巷弄裡，以原型食材與老宅空間組成一頓日常餐食。",
+      "hours": null,
+      "exceptions": {},
+      "hoursText": "時間待確認：2024 慢食指南載 08:00–15:00、週三休，較新資料有差異，未用於營業篩選。",
+      "officialUrl": "https://www.facebook.com/Tsaominliving",
+      "sources": [
+        {
+          "label": "2024 慢食指南（歷史資料）",
+          "url": "https://slowfoodtaitung.tw/wp-content/uploads/2024/10/2024臺東慢食指南-Taitung-Slow-Food-Select.pdf"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://maps.app.goo.gl/SmHtiRmKZeMPqwD46"
+        }
+      ],
+      "coordinateSource": "https://maps.app.goo.gl/SmHtiRmKZeMPqwD46",
+      "coordinateNote": "官方資料所連地圖展開後的店家標記。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "mumu",
+      "name": "目目咖啡",
+      "categories": [
+        "咖啡店",
+        "甜品店"
+      ],
+      "address": "臺東市更生路404巷8號",
+      "lat": 22.7623,
+      "lng": 121.1435299,
+      "tags": [
+        "巷弄",
+        "自家烘豆",
+        "手作蛋糕"
+      ],
+      "description": "走進巷子，把午後留給自家烘焙咖啡與手作蛋糕。",
+      "hours": {
+        "0": [
+          [
+            "13:30",
+            "18:30"
+          ]
+        ],
+        "1": [],
+        "2": [],
+        "3": [
+          [
+            "13:30",
+            "18:30"
+          ]
+        ],
+        "4": [
+          [
+            "13:30",
+            "18:30"
+          ]
+        ],
+        "5": [
+          [
+            "13:30",
+            "18:30"
+          ]
+        ],
+        "6": [
+          [
+            "13:30",
+            "18:30"
+          ]
+        ]
+      },
+      "exceptions": {},
+      "hoursText": "慢食台東頁：週三至週日 13:30–18:30，週一、二休。",
+      "officialUrl": "https://www.facebook.com/mumucoffeeshop/",
+      "sources": [
+        {
+          "label": "慢食台東",
+          "url": "https://slowfoodtaitung.tw/restaurant/目目咖啡"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://goo.gl/maps/p9eNxuJ6mrJVUgwEA"
+        }
+      ],
+      "coordinateSource": "https://goo.gl/maps/p9eNxuJ6mrJVUgwEA",
+      "coordinateNote": "官方資料所連地圖展開後的店家標記。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "green-bird",
+      "name": "青蔦菓子咖啡",
+      "categories": [
+        "咖啡店",
+        "甜品店"
+      ],
+      "address": "臺東市中正路251巷19號",
+      "lat": 22.7551692,
+      "lng": 121.1529324,
+      "tags": [
+        "巷弄",
+        "季節水果",
+        "甜點"
+      ],
+      "description": "季節水果與咖啡，是這間市區巷弄小店的主角。",
+      "hours": null,
+      "exceptions": {},
+      "hoursText": "時間待確認：舊慢食頁載 12:00–21:00、週三休；舊頁路由異常，未用於營業篩選。",
+      "officialUrl": "https://www.facebook.com/nicolenicklovelycafe2017/",
+      "sources": [
+        {
+          "label": "慢食台東日文舊頁（歷史資料）",
+          "url": "https://slowfoodtaitung.tw/ja/restaurant/6759"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://goo.gl/maps/LnWeB5NCTojB2Aoc7"
+        }
+      ],
+      "coordinateSource": "https://goo.gl/maps/LnWeB5NCTojB2Aoc7",
+      "coordinateNote": "舊官方頁所連地圖展開後的店家標記；出發前確認店況。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "ameya",
+      "name": "Ameya 飴屋",
+      "categories": [
+        "餐廳",
+        "咖啡店",
+        "甜品店"
+      ],
+      "address": "臺東市杭州街128巷16號",
+      "lat": 22.7605825,
+      "lng": 121.1472425,
+      "tags": [
+        "日式料理",
+        "手作烘焙",
+        "巷弄"
+      ],
+      "description": "日式家庭料理與手作烘焙，收進一間巷弄小店。",
+      "hours": null,
+      "exceptions": {},
+      "hoursText": "時間待確認：歷史慢食資料載 11:00–18:00、週日一休；目前頁面不完整，未用於營業篩選。",
+      "officialUrl": "https://slowfoodtaitung.tw/restaurant/ameya飴屋",
+      "sources": [
+        {
+          "label": "2023 慢食指南（歷史資料）",
+          "url": "https://slowfoodtaitung.tw/wp-content/uploads/2023/06/2023體驗臺東慢食Taitung-SlowFood-Guidebook.pdf"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://goo.gl/maps/2QHygdPfpskaFvHP7"
+        }
+      ],
+      "coordinateSource": "https://goo.gl/maps/2QHygdPfpskaFvHP7",
+      "coordinateNote": "官方資料所連地圖展開後的店家標記；出發前確認店況。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "oddo",
+      "name": "怪豆咖啡 ODDO COFFEE",
+      "categories": [
+        "咖啡店"
+      ],
+      "address": "臺東市更生路504號",
+      "lat": 22.7636569,
+      "lng": 121.1409207,
+      "tags": [
+        "自家烘豆",
+        "咖啡交流"
+      ],
+      "description": "從豆子到杯中風味，找一段時間認識一杯咖啡。",
+      "hours": {
+        "0": null,
+        "1": null,
+        "2": [
+          [
+            "12:00",
+            "18:30"
+          ]
+        ],
+        "3": [
+          [
+            "13:00",
+            "18:30"
+          ]
+        ],
+        "4": [
+          [
+            "13:00",
+            "18:30"
+          ]
+        ],
+        "5": [
+          [
+            "12:00",
+            "18:30"
+          ]
+        ],
+        "6": [
+          [
+            "12:00",
+            "18:30"
+          ]
+        ]
+      },
+      "exceptions": {},
+      "hoursText": "政府活動頁：週二、五、六 12:00–18:30；週三、四 13:00–18:30；週日、一未載，視為未知。",
+      "officialUrl": "https://www.facebook.com/share/12JJMKAEReE/",
+      "sources": [
+        {
+          "label": "自然醒慢活祭官方地圖",
+          "url": "https://www.taitungspiritfestival.tw/tw/map/596E48ec6f91"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://maps.app.goo.gl/27nf8SJv92UidDGi7"
+        }
+      ],
+      "coordinateSource": "https://maps.app.goo.gl/27nf8SJv92UidDGi7",
+      "coordinateNote": "官方活動頁所連地圖展開後的店家標記。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "salama",
+      "name": "傻啦慢食旅 SALAMA",
+      "categories": [
+        "早午餐",
+        "餐廳",
+        "咖啡店"
+      ],
+      "address": "臺東市泰安街41號",
+      "lat": 22.7684227,
+      "lng": 121.1402779,
+      "tags": [
+        "馬告",
+        "月桃",
+        "在地風味"
+      ],
+      "description": "把馬告與月桃等風味融入早午餐，換一種方式認識臺東食材。",
+      "hours": null,
+      "exceptions": {},
+      "hoursText": "官網載 08:00–14:00、最後供餐 13:00；未載完整週休，時間待確認，不用於營業篩選。",
+      "officialUrl": "https://salama47.webflow.io/brunch",
+      "sources": [
+        {
+          "label": "店家官網菜單",
+          "url": "https://salama47.webflow.io/brunch"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://maps.google.com/maps?q=傻啦慢食旅+台東市泰安街41號&output=embed"
+        }
+      ],
+      "coordinateSource": "https://maps.google.com/maps?q=傻啦慢食旅+台東市泰安街41號&output=embed",
+      "coordinateNote": "地址與店名核對 Google Maps 店家資料標記。",
+      "price": "官網單點早午餐 NT$80–250；套餐加 NT$49／79，飲品另計，現場為準。",
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "dasu",
+      "name": "大酥老公 Dasu Biscuit",
+      "categories": [
+        "甜品店"
+      ],
+      "address": "臺東市更生路713號",
+      "lat": 22.7673786,
+      "lng": 121.1367364,
+      "tags": [
+        "手作餅乾",
+        "奶油香",
+        "伴手禮"
+      ],
+      "description": "把手作奶油餅乾收進下午的小點心，也能帶一份回家。",
+      "hours": null,
+      "exceptions": {},
+      "hoursText": "官方介紹未載完整營業時間，請查看官方最新公告。",
+      "officialUrl": "https://www.instagram.com/dasu_biscuit",
+      "sources": [
+        {
+          "label": "2026 台東博覽會官方介紹",
+          "url": "https://taitungexpo2026.com.tw/brand/detail/50?lang=en"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://maps.google.com/maps?q=大酥老公+台東市更生路713號&output=embed"
+        }
+      ],
+      "coordinateSource": "https://maps.google.com/maps?q=大酥老公+台東市更生路713號&output=embed",
+      "coordinateNote": "地址與店名核對 Google Maps 店家資料標記。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "trianon",
+      "name": "Trianon Café 翠安儂",
+      "categories": [
+        "咖啡店",
+        "甜品店"
+      ],
+      "address": "臺東市四維路三段152號",
+      "lat": 22.7659881,
+      "lng": 121.1409929,
+      "tags": [
+        "法式甜點",
+        "飯店咖啡館"
+      ],
+      "description": "想留一個下午給法式甜點，可以從這間飯店咖啡館開始。",
+      "hours": null,
+      "exceptions": {},
+      "hoursText": "官網載 11:30–20:00，但未明列完整週休，時間待確認。",
+      "officialUrl": "https://trianon.com.tw/?lang=zh_hant",
+      "sources": [
+        {
+          "label": "店家官網",
+          "url": "https://trianon.com.tw/?lang=zh_hant"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://maps.google.com/maps?q=翠安儂風旅&t=m&z=14&output=embed&iwloc=near"
+        }
+      ],
+      "coordinateSource": "https://maps.google.com/maps?q=翠安儂風旅&t=m&z=14&output=embed&iwloc=near",
+      "coordinateNote": "官網所連地圖的店家資料座標，核對四維路三段152號。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "walkabout",
+      "name": "有時散步 Walkabout Café",
+      "categories": [
+        "早午餐",
+        "咖啡店"
+      ],
+      "address": "臺東市南京路113號",
+      "lat": 22.7580869,
+      "lng": 121.147516,
+      "tags": [
+        "早午餐",
+        "蔬食",
+        "閱讀空間"
+      ],
+      "description": "讓一頓早午餐，多一點閱讀與散步的餘裕。",
+      "hours": null,
+      "exceptions": {},
+      "hoursText": "舊觀光指南為 2018 年資料，未作現行時段依據；請先確認營業。",
+      "officialUrl": "https://www.facebook.com/105543579518730/",
+      "sources": [
+        {
+          "label": "政府旅遊資料：周邊餐飲地址",
+          "url": "https://www.medicaltravel.org.tw/Scenery-Content.aspx?idstr=C1_376540000A_000314&lang=1"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://maps.google.com/maps?q=有時散步+台東市南京路113號&output=embed"
+        }
+      ],
+      "coordinateSource": "https://maps.google.com/maps?q=有時散步+台東市南京路113號&output=embed",
+      "coordinateNote": "地址與店名核對 Google Maps 店家資料標記。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "alihi",
+      "name": "阿力海自助百匯 AliHi",
+      "categories": [
+        "早午餐",
+        "餐廳"
+      ],
+      "address": "臺東市正氣路316號1樓",
+      "lat": 22.75561,
+      "lng": 121.1487,
+      "tags": [
+        "自助百匯",
+        "飯店餐廳",
+        "週末早午餐"
+      ],
+      "description": "想一次選多種料理時，飯店內的自助百匯也是一個選擇。",
+      "hours": {
+        "0": [
+          [
+            "07:00",
+            "12:30"
+          ],
+          [
+            "17:30",
+            "19:00"
+          ],
+          [
+            "19:30",
+            "21:00"
+          ]
+        ],
+        "1": [
+          [
+            "06:30",
+            "10:30"
+          ],
+          [
+            "18:00",
+            "21:00"
+          ]
+        ],
+        "2": [
+          [
+            "06:30",
+            "10:30"
+          ],
+          [
+            "18:00",
+            "21:00"
+          ]
+        ],
+        "3": [
+          [
+            "06:30",
+            "10:30"
+          ],
+          [
+            "18:00",
+            "21:00"
+          ]
+        ],
+        "4": [
+          [
+            "06:30",
+            "10:30"
+          ],
+          [
+            "18:00",
+            "21:00"
+          ]
+        ],
+        "5": [
+          [
+            "06:30",
+            "10:30"
+          ],
+          [
+            "17:30",
+            "19:00"
+          ],
+          [
+            "19:30",
+            "21:00"
+          ]
+        ],
+        "6": [
+          [
+            "07:00",
+            "12:30"
+          ],
+          [
+            "17:30",
+            "19:00"
+          ],
+          [
+            "19:30",
+            "21:00"
+          ]
+        ]
+      },
+      "exceptions": {},
+      "hoursText": "官網中文頁：平日早餐 06:30–10:30，週末早午餐 07:00–12:30；一至四晚餐 18:00–21:00，五至日晚餐 17:30–19:00／19:30–21:00。特殊假日另公告。",
+      "officialUrl": "https://www.sheraton-taitung.com/dining-detail/alihi/",
+      "sources": [
+        {
+          "label": "酒店官方中文頁",
+          "url": "https://www.sheraton-taitung.com/dining-detail/alihi/"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://mapcarta.com/W544318021"
+        }
+      ],
+      "coordinateSource": "https://mapcarta.com/W544318021",
+      "coordinateNote": "OpenStreetMap 酒店建築位置；同棟不同樓層共用座標。",
+      "price": "官網早餐 NT$550＋10%；晚餐平日 NT$1,180＋10%、假日 NT$1,380＋10%，特殊日另計。",
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "hoyea",
+      "name": "好也粵式中餐廳",
+      "categories": [
+        "餐廳"
+      ],
+      "address": "臺東市正氣路316號2樓",
+      "lat": 22.75561,
+      "lng": 121.1487,
+      "tags": [
+        "粵式料理",
+        "港式點心",
+        "飯店餐廳"
+      ],
+      "description": "港式點心、燉湯與燒臘，適合想好好坐下吃一頓的時候。",
+      "hours": {
+        "0": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "17:30",
+            "21:00"
+          ]
+        ],
+        "1": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "17:30",
+            "21:00"
+          ]
+        ],
+        "2": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "17:30",
+            "21:00"
+          ]
+        ],
+        "3": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "17:30",
+            "21:00"
+          ]
+        ],
+        "4": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "17:30",
+            "21:00"
+          ]
+        ],
+        "5": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "17:30",
+            "21:00"
+          ]
+        ],
+        "6": [
+          [
+            "11:30",
+            "14:00"
+          ],
+          [
+            "17:30",
+            "21:00"
+          ]
+        ]
+      },
+      "exceptions": {},
+      "hoursText": "官網：午餐 11:30–14:00，晚餐 17:30–21:00；部分套餐需預訂。",
+      "officialUrl": "https://www.sheraton-taitung.com/dining-detail/hoyea/",
+      "sources": [
+        {
+          "label": "酒店官方中文頁",
+          "url": "https://www.sheraton-taitung.com/dining-detail/hoyea/"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://mapcarta.com/W544318021"
+        }
+      ],
+      "coordinateSource": "https://mapcarta.com/W544318021",
+      "coordinateNote": "OpenStreetMap 酒店建築位置；同棟不同樓層共用座標。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "bar16",
+      "name": "BAR 16 麵包坊",
+      "categories": [
+        "甜品店"
+      ],
+      "address": "臺東市正氣路316號1樓",
+      "lat": 22.75561,
+      "lng": 121.1487,
+      "tags": [
+        "麵包",
+        "烘焙",
+        "外帶點心"
+      ],
+      "description": "想外帶一份烘焙點心，就把這裡收進順路清單。",
+      "hours": {
+        "0": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "1": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "2": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "3": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "4": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "5": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "6": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ]
+      },
+      "exceptions": {},
+      "hoursText": "官網：10:00–21:00；品項與供應狀況依現場為準。",
+      "officialUrl": "https://www.sheraton-taitung.com/dining-detail/bakery/",
+      "sources": [
+        {
+          "label": "酒店官方中文頁",
+          "url": "https://www.sheraton-taitung.com/dining-detail/bakery/"
+        },
+        {
+          "label": "位置核對來源",
+          "url": "https://mapcarta.com/W544318021"
+        }
+      ],
+      "coordinateSource": "https://mapcarta.com/W544318021",
+      "coordinateNote": "OpenStreetMap 酒店建築位置；同棟不同樓層共用座標。",
+      "price": null,
+      "checkedAt": "2026-10-30"
+    },
+    {
+      "id": "vegine",
+      "name": "蔬念 Vegine",
+      "categories": [
+        "餐廳"
+      ],
+      "address": "臺東市正氣路312巷12號",
+      "lat": 22.7553794,
+      "lng": 121.1489225,
+      "tags": [
+        "純素",
+        "滷味",
+        "麵飯便當"
+      ],
+      "description": "正氣路巷弄裡的純素滷味與麵飯便當，提供內用、外帶與電話預訂。",
+      "hoursText": "時間待確認：政府活動頁與歷史慢食資料的休息日、晚餐時段不一致，不用於營業篩選。",
+      "officialUrl": "https://www.taitungspiritfestival.tw/tw/map/074bE0FC6542",
+      "sources": [
+        {
+          "label": "自然醒慢活祭政府店家介紹",
+          "url": "https://www.taitungspiritfestival.tw/tw/map/074bE0FC6542"
+        }
+      ],
+      "hours": null,
+      "exceptions": {},
+      "price": null,
+      "checkedAt": "2026-11-02",
+      "coordinateSource": "https://maps.google.com/maps?q=%E8%94%AC%E5%BF%B5%20Vegine%20%E8%87%BA%E6%9D%B1%E5%B8%82%E6%AD%A3%E6%B0%A3%E8%B7%AF312%E5%B7%B712%E8%99%9F&output=embed",
+      "coordinateNote": "本輪讀取地址與店名相符的Google Maps嵌入店家陣列座標，非視窗中心。",
+      "longIntro": "蔬念位在正氣路的巷弄裡，是以純素滷味、麵飯與便當為主的日常餐食選擇。店名呼應對家鄉的思念，餐點則把蔬菜、菇類與主食組成一餐，不必把吃蔬食想得太複雜。政府活動介紹載明可內用、外帶與電話預訂，若在市中心逛街前後想安排一頓蔬食，可以先查看這間店的當日供應，再決定是否前往。此處收錄的是公開資訊整理，並非親訪心得；餐點供應與座位仍以現場為準。現有來源的公休日與時段不一致，出發前請先確認。"
+    },
+    {
+      "id": "alanger",
+      "name": "艾蘭哥爾藝文咖啡館",
+      "categories": [
+        "咖啡店"
+      ],
+      "address": "臺東市浙江路350號小文創教室1樓",
+      "lat": 22.7641712,
+      "lng": 121.1503239,
+      "tags": [
+        "臺東咖啡",
+        "美術館",
+        "產地知識"
+      ],
+      "description": "位在臺東美術館小文創教室一樓，介紹從種植到出杯的臺東咖啡。",
+      "hoursText": "時間待確認：本輪可讀政府介紹未列固定營業時間，歷史指南時段不作現在營業依據。",
+      "officialUrl": "https://www.facebook.com/taitungcoffee",
+      "sources": [
+        {
+          "label": "慢食台東政府介紹",
+          "url": "https://slowfoodtaitung.tw/store/艾蘭哥爾咖啡"
+        }
+      ],
+      "hours": null,
+      "exceptions": {},
+      "price": null,
+      "checkedAt": "2026-11-02",
+      "coordinateSource": "https://maps.google.com/maps?q=%E8%89%BE%E8%98%AD%E5%93%A5%E7%88%BE%E8%97%9D%E6%96%87%E5%92%96%E5%95%A1%E9%A4%A8%20%E8%87%BA%E6%9D%B1%E5%B8%82%E6%B5%99%E6%B1%9F%E8%B7%AF350%E8%99%9F%E5%B0%8F%E6%96%87%E5%89%B5%E6%95%99%E5%AE%A41%E6%A8%93&output=embed",
+      "coordinateNote": "本輪讀取地址與店名相符的Google Maps嵌入店家陣列座標，非視窗中心。",
+      "longIntro": "艾蘭哥爾藝文咖啡館位在臺東美術館的小文創教室一樓，把喝咖啡與認識產地放在同一段停留裡。政府慢食介紹將它定位為從種植到出杯的咖啡知識空間，並記錄其與南迴金崙咖啡農園的連結。若想在美術館行程中安排一杯臺東咖啡，或對在地豆子的來源與風味有興趣，這裡可以列入候選。部分茶飲也與自家農場作物有關。此處是公開資料整理，並非親訪心得；現有資料未確認固定餐食、甜點與價格，因此先以咖啡店分類，實際品項與營業時間請向店家確認。"
+    }
+  ]
+}

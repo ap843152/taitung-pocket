@@ -1,0 +1,41 @@
+// Offline controller tests with a small DOM/map double. These do NOT verify browser rendering.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {STORAGE_KEY} from '../dist/core.mjs';
+const data=JSON.parse(readFileSync(new URL('../dist/shops.json',import.meta.url)));
+class Element {
+  constructor(tag='div'){this.tag=tag;this.children=[];this.attributes={};this.events={};this.value='';this.hidden=false;this.style={};this.dataset={};this.disabled=false;this.className='';this.textContent='';this.classList={toggle:(c,on)=>{const names=new Set(this.className.split(' ').filter(Boolean));if(on??!names.has(c))names.add(c);else names.delete(c);this.className=[...names].join(' ');},contains:c=>this.className.split(' ').includes(c)};}
+  append(...nodes){this.children.push(...nodes);}
+  replaceChildren(...nodes){this.children=[...nodes];}
+  setAttribute(k,v){this.attributes[k]=String(v);}
+  addEventListener(k,v){this.events[k]=v;}
+  querySelectorAll(selector){const found=[];for(const n of this.children){if(typeof n==='object'){if(selector==='button'&&n.tag==='button'||selector.startsWith('.')&&n.className.split(' ').includes(selector.slice(1)))found.push(n);found.push(...n.querySelectorAll(selector));}}return found;}
+  showModal(){this.open=true;}
+  matches(selector){return selector.split(',').includes(this.tag);}
+  scrollIntoView(){}
+  click(){this.onclick?.({target:this});}
+}
+async function setup({stored=null,mapFail=false,denied=false,storageFail=false}={}){
+  const ids=Object.fromEntries([...readFileSync(new URL('../dist/index.html',import.meta.url),'utf8').matchAll(/id="([^"]+)"/g)].map(m=>[m[1],new Element()]));
+  const body=new Element('body');ids['time-mode'].value='any';ids.saved.value='all';ids.visited.value='all';
+  const document={body,activeElement:null,createElement:t=>new Element(t),querySelector:s=>s.startsWith('#')?ids[s.slice(1)]:null,querySelectorAll:s=>ids.cards.querySelectorAll(s)};
+  const values=new Map(stored?[[STORAGE_KEY,JSON.stringify(stored)]]:[]);let geolocationCalls=0;const layers=[];
+  const group={layers:[],addTo(){return this;},getLayers(){return this.layers;},clearLayers(){this.layers=[];},addLayer(m){this.layers.push(m);}};
+  const map={setView(){return this;},fitBounds(){},invalidateSize(){},removeLayer(){}};
+  const L={map:()=>map,layerGroup:()=>group,tileLayer:()=>({addTo(){return this;},on(e,f){layers.push({e,f});return this;}}),divIcon:x=>x,marker:()=>({bindPopup(p){this.popup=p;return this;},on(e,f){this.handler=f;return this;},openPopup(){}}),circleMarker:()=>({addTo(){return this;},bindPopup(){return this;}})};
+  Object.assign(globalThis,{document,window:{L:mapFail?null:L,addEventListener(){}},L,localStorage:{getItem:k=>values.get(k)||null,setItem:(k,v)=>{if(storageFail)throw new Error('quota');values.set(k,v);}},fetch:async()=>({ok:true,json:async()=>data}),setInterval:()=>0,setTimeout:()=>0,clearTimeout:()=>{},requestAnimationFrame:f=>f()});
+  Object.defineProperty(globalThis,'navigator',{configurable:true,value:{geolocation:{getCurrentPosition(ok,fail){geolocationCalls++;if(denied)fail({code:1});else ok({coords:{latitude:22.755,longitude:121.148,accuracy:20}});}}}});
+  await import(`../dist/app.mjs?test=${Math.random()}`);
+  return {ids,values,group,layers,document,get geolocationCalls(){return geolocationCalls;}};
+}
+const descendants=(n,p)=>[...n.children.filter(x=>typeof x==='object'&&p(x)),...n.children.filter(x=>typeof x==='object').flatMap(x=>descendants(x,p))];
+test('載入正式店家，地圖標記與清單同步，分類與搜尋生效',async()=>{const x=await setup();assert.equal(x.ids.cards.children.length,data.shops.length);assert.equal(x.group.layers.length,data.shops.length);assert.equal(x.geolocationCalls,0);x.ids.categories.children.find(b=>b.dataset.category==='甜品店').click();assert.equal(x.ids.cards.children.length,data.shops.filter(s=>s.categories.includes('甜品店')).length);assert.equal(x.group.layers.length,x.ids.cards.children.length);x.ids.query.events.input({target:{value:'不可能存在的店'}});assert.equal(x.ids.cards.children.length,0);assert.equal(x.ids.empty.hidden,false);assert.equal(x.group.layers.length,0);x.ids.reset.click();assert.equal(x.ids.cards.children.length,data.shops.length);});
+test('收藏、去過、備註存入本機，重新載入保留',async()=>{const x=await setup();const id=x.ids.cards.children[0].dataset.id;descendants(x.ids.cards.children[0],e=>e.className==='save')[0].click();let stored=JSON.parse(x.values.get(STORAGE_KEY));assert.equal(stored.records[id].saved,true);const note=descendants(x.ids.cards.children[0],e=>e.tag==='textarea')[0];note.value='太太想去';note.onchange();descendants(x.ids.cards.children[0],e=>e.className==='visit')[0].click();stored=JSON.parse(x.values.get(STORAGE_KEY));assert.equal(stored.records[id].note,'太太想去');assert.equal(stored.records[id].visited,true);const y=await setup({stored});y.ids.saved.onchange({target:{value:'saved'}});assert.equal(y.ids.cards.children.length,1);assert.equal(y.ids.cards.children[0].dataset.id,id);y.ids.visited.onchange({target:{value:'no'}});assert.equal(y.ids.cards.children.length,0);});
+test('儲存失敗會提示且不假裝收藏成功',async()=>{const x=await setup({storageFail:true});descendants(x.ids.cards.children[0],e=>e.className==='save')[0].click();assert.match(x.ids.toast.textContent,/儲存失敗/);assert.equal(x.values.has(STORAGE_KEY),false);});
+test('定位拒絕仍保留完整清單，未按鈕前不請求定位',async()=>{const x=await setup({denied:true});assert.equal(x.geolocationCalls,0);x.ids.locate.click();assert.equal(x.geolocationCalls,1);assert.match(x.ids['location-message'].textContent,/未授權定位/);assert.equal(x.ids.cards.children.length,data.shops.length);assert.equal(x.ids.locate.disabled,false);});
+test('定位成功、半徑與地圖視圖可以操作',async()=>{const x=await setup();x.ids.locate.click();assert.equal(x.ids.radius.disabled,false);x.ids.radius.onchange({target:{value:'1'}});assert(x.ids.cards.children.length<data.shops.length);assert.equal(x.group.layers.length,x.ids.cards.children.length);x.ids['view-map'].click();assert.equal(x.document.body.classList.contains('map-view'),true);x.group.layers[0].handler();assert.equal(x.ids['map-detail'].hidden,false);});
+test('Leaflet不可用或圖磚失效時仍能搜尋收藏',async()=>{const x=await setup({mapFail:true});assert.match(x.ids['map-message'].textContent,/地圖無法載入/);assert.equal(x.ids.cards.children.length,data.shops.length);const y=await setup();const error=y.layers.find(e=>e.e==='tileerror').f;error();error();error();assert.match(y.ids['map-message'].textContent,/底圖暫時無法載入/);assert.equal(y.ids.cards.children.length,data.shops.length);});
+test('匯入錯誤JSON不改紀錄，合法備份保留同店現有值',async()=>{const first=data.shops[0].id,second=data.shops[1].id;const stored={version:1,records:{[first]:{saved:true,visited:false,note:'目前'}}};const x=await setup({stored});await x.ids.import.onchange({target:{files:[{size:10,text:async()=>'{bad'}],value:'x'}});assert.match(x.ids.toast.textContent,/不是有效 JSON/);assert.equal(JSON.parse(x.values.get(STORAGE_KEY)).records[first].note,'目前');await x.ids.import.onchange({target:{files:[{size:500,text:async()=>JSON.stringify({version:1,records:{[first]:{saved:false,visited:true,note:'舊'},[second]:{saved:true,visited:false,note:'新增'}}})}],value:'x'}});const result=JSON.parse(x.values.get(STORAGE_KEY));assert.equal(result.records[first].note,'目前');assert.equal(result.records[second].note,'新增');});
+test('手機地圖選店後收藏與標記去過，不會失去詳情',async()=>{const x=await setup();x.ids['view-map'].click();x.group.layers[0].handler();assert.equal(x.ids['map-detail'].hidden,false);descendants(x.ids['map-detail'],e=>e.className==='save')[0].click();assert.equal(x.ids['map-detail'].hidden,false);assert.equal(descendants(x.ids['map-detail'],e=>e.tag==='textarea').length,1);descendants(x.ids['map-detail'],e=>e.className==='visit')[0].click();assert.equal(x.ids['map-detail'].hidden,false);});
+

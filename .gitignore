@@ -1,0 +1,7 @@
+.runtime/
+node_modules/
+.netlify/
+research/snapshots/
+content/shops.json
+research/
+package-lock.json
