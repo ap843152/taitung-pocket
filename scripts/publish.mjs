@@ -18,7 +18,7 @@ if(contentDigest(next)!==contentDigest(batch.catalog))throw new Error('準備資
 for(const e of entries)if(contentDigest(next.shops.find(s=>s.id===e.shop.id))!==contentDigest(e.shop))throw new Error('資料與核准店家不符');
 if(process.argv.includes('--check')){console.log(`發布預檢通過：${entries.length}筆核准版本。未發布。`);process.exit(0);}
 if(process.argv.includes('--reconcile')){
-  const response=await fetch('https://ap843152.github.io/taitung-pocket/shops.json?verify='+Date.now(),{signal:AbortSignal.timeout(30000),cache:'no-store'});
+  const response=await fetch('https://taitung.adventurehotairballoon.com/shops.json?verify='+Date.now(),{signal:AbortSignal.timeout(30000),cache:'no-store'});
   if(!response.ok||contentDigest(await response.json())!==contentDigest(next))throw new Error('HTTPS正式資料不符，不標記published');
   const path=resolve(root,'research/state.json'),current=loadState(path);
   for(const item of batch.entries){const e=current.value.entries.find(x=>x.shop.id===item.id&&x.revision===item.revision&&x.status==='approved');if(!e)throw new Error('核准紀錄已變');verifyApproved(e);e.status='published';e.publishedAt=new Date().toISOString();}

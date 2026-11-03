@@ -2,7 +2,7 @@
 
 用地圖尋找臺東市中心的早午餐、餐廳、咖啡與甜點，收藏下次想去的店。
 
-網站：https://ap843152.github.io/taitung-pocket/
+網站：https://taitung.adventurehotairballoon.com/
 
 ## 使用
 
