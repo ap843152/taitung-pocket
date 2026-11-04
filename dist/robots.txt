@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://taitung.adventurehotairballoon.com/sitemap.xml

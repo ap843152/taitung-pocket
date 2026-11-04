@@ -1,7 +1,11 @@
 import {readFileSync,writeFileSync} from 'node:fs';
-import {validateCatalog} from './content.mjs';
 import {loadCatalog} from './catalog.mjs';
+import {renderSeo,robotsText,sitemapXml} from './seo.mjs';
 const data=loadCatalog();
 writeFileSync(new URL('../content/shops.json',import.meta.url),JSON.stringify(data,null,2)+'\n');
 writeFileSync(new URL('../dist/shops.json',import.meta.url),JSON.stringify(data,null,2)+'\n');
+const home=new URL('../dist/index.html',import.meta.url);
+writeFileSync(home,renderSeo(readFileSync(home,'utf8'),data));
+writeFileSync(new URL('../dist/robots.txt',import.meta.url),robotsText);
+writeFileSync(new URL('../dist/sitemap.xml',import.meta.url),sitemapXml);
 console.log(`已由正式資料產生 ${data.shops.length} 間店家；未修改待審紀錄。`);

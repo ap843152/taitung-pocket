@@ -1,6 +1,10 @@
-# 台東口袋地圖
+# 台東好吃｜美食口袋地圖
 
 用地圖尋找臺東市中心的早午餐、餐廳、咖啡與甜點，收藏下次想去的店。
+
+Instagram：https://www.instagram.com/taitung_delicious/
+
+網站標題、首頁品牌、WebSite結構化資料與社群連結使用「台東好吃」。建置會把正式店家資料直接產生在首頁HTML，並更新robots.txt與sitemap.xml；只收錄正式首頁，不提交研究檔、JSON或篩選狀態。搜尋收錄、排名及Search Console驗證需另行確認，建置成功不代表已被Google收錄。
 
 網站：https://taitung.adventurehotairballoon.com/
 
