@@ -2,8 +2,19 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {loadCatalog} from '../scripts/catalog.mjs';
+import {createHash} from 'node:crypto';
 import {renderSeo,SITE_URL,INSTAGRAM_URL,robotsText,sitemapXml} from '../scripts/seo.mjs';
 const html=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8'),catalog=loadCatalog();
+test('首頁與模組依賴的版本對應實際內容，避免快取混用新舊介面',()=>{
+ const assets=new URL('../dist/',import.meta.url);
+ const fingerprint=name=>createHash('sha256').update(readFileSync(new URL(name,assets))).digest('hex').slice(0,12);
+ for(const name of ['app.mjs','style.css'])assert.ok(html.includes(`${name}?v=${fingerprint(name)}`));
+ assert.ok(readFileSync(new URL('app.mjs',assets),'utf8').includes(`shops.json?v=${fingerprint('shops.json')}`));
+ for(const name of ['app.mjs','finder.mjs','lunch.mjs']){
+  const source=readFileSync(new URL(name,assets),'utf8');
+  for(const m of source.matchAll(/from ['"]\.\/([^'"?]+)\?v=([a-f0-9]+)['"]/g))assert.equal(m[2],fingerprint(m[1]));
+ }
+});
 test('無需執行JavaScript就能讀取全部正式店家與來源，重建不重複內容',()=>{
  const built=renderSeo(html,catalog);
  assert.equal(built,renderSeo(built,catalog));

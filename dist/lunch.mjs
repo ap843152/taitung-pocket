@@ -1,7 +1,8 @@
-import {openingStatus,distanceKm,taiwanParts} from './core.mjs';
+import {openingStatus,distanceKm,taiwanParts} from './core.mjs?v=a3a1a722f366';
 export const MEAL_TYPES={simple:'麵、飯或便當',noodles:'麵食',rice:'飯類',bento:'便當'};
 export const DEFAULT_LUNCH={mealType:'simple',excludedTypes:[],budget:100,totalMinutes:60,shortWait:true,departure:null};
 const numberToken='(?:\\d+(?:\\.\\d+)?|[零〇一二兩三四五六七八九十百千]+|半)';
+export {numberToken,number as parseNumber};
 function number(text){
   if(text==='半')return .5;if(/^\d+(\.\d+)?$/.test(text))return Number(text);
   if(/[百千][一二兩三四五六七八九]$/.test(text))return NaN;
