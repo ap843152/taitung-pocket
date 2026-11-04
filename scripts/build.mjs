@@ -7,6 +7,8 @@ writeFileSync(new URL('../content/shops.json',import.meta.url),JSON.stringify(da
 writeFileSync(new URL('../dist/shops.json',import.meta.url),JSON.stringify(data,null,2)+'\n');
 const home=new URL('../dist/index.html',import.meta.url);
 const asset=name=>new URL('../dist/'+name,import.meta.url);
+// Windows and the Linux deployment must fingerprint identical text bytes.
+for(const name of ['core.mjs','lunch.mjs','finder.mjs','app.mjs','style.css'])writeFileSync(asset(name),readFileSync(asset(name),'utf8').replace(/\r\n/g,'\n'));
 const hash=name=>createHash('sha256').update(readFileSync(asset(name))).digest('hex').slice(0,12);
 // Stamp dependencies before their parent, so browser caches cannot mix releases.
 for(const [name,deps] of [['lunch.mjs',['core.mjs']],['finder.mjs',['core.mjs','lunch.mjs']],['app.mjs',['core.mjs','finder.mjs']]]){
@@ -16,7 +18,7 @@ for(const [name,deps] of [['lunch.mjs',['core.mjs']],['finder.mjs',['core.mjs','
 }
 const app=asset('app.mjs');
 writeFileSync(app,readFileSync(app,'utf8').replace(/fetch\('\.\/shops\.json(?:\?v=[a-f0-9]+)?'\)/,`fetch('./shops.json?v=${hash('shops.json')}')`));
-let html=renderSeo(readFileSync(home,'utf8'),data);
+let html=renderSeo(readFileSync(home,'utf8').replace(/\r\n/g,'\n'),data);
 html=html.replace(/src="app\.mjs(?:\?v=[a-f0-9]+)?"/,`src="app.mjs?v=${hash('app.mjs')}"`).replace(/href="style\.css(?:\?v=[a-f0-9]+)?"/,`href="style.css?v=${hash('style.css')}"`);
 writeFileSync(home,html);
 writeFileSync(new URL('../dist/robots.txt',import.meta.url),robotsText);
