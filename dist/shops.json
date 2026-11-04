@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-03",
+  "checkedAt": "2026-11-04",
   "coverage": "鐵花新聚落周邊約3公里；精選可核對地址與位置的真實店家，非完整名錄。",
   "shops": [
     {
@@ -1204,6 +1204,161 @@
       "coordinateSource": "https://maps.google.com/maps?q=Tanya%E2%80%99s%E6%B3%B0%E9%A3%9F%E9%A4%90%E6%A1%8C%20%E8%87%BA%E6%9D%B1%E5%B8%82%E4%B8%AD%E8%8F%AF%E8%B7%AF%E4%B8%80%E6%AE%B5376%E5%B7%B748%E8%99%9F&output=embed",
       "coordinateNote": "本輪讀取與店名、地址相符的嵌入店家標記；使用店家陣列經緯度，非地圖視窗中心。",
       "longIntro": "位在中華路一段376巷48號，以泰式料理與臺東香料作為餐桌主題。"
+    },
+    {
+      "id": "maru8",
+      "name": "丸八餐廳",
+      "categories": [
+        "餐廳"
+      ],
+      "address": "臺東市精誠路338號",
+      "lat": 22.7505585,
+      "lng": 121.1533434,
+      "tags": [
+        "台菜",
+        "海鮮",
+        "合菜"
+      ],
+      "description": "精誠路上的台菜海鮮合菜餐廳。",
+      "hours": null,
+      "hoursText": "官網列11:30–13:30、17:30–20:00；固定公休日未列。",
+      "officialUrl": "https://www.maru8.com.tw/",
+      "sources": [
+        {
+          "label": "丸八餐廳官網",
+          "url": "https://www.maru8.com.tw/"
+        }
+      ],
+      "price": null,
+      "checkedAt": "2026-11-04",
+      "exceptions": {},
+      "coordinateSource": "https://maps.google.com/maps?q=%E4%B8%B8%E5%85%AB%E9%A4%90%E5%BB%B3%20%E8%87%BA%E6%9D%B1%E5%B8%82%E7%B2%BE%E8%AA%A0%E8%B7%AF338%E8%99%9F&output=embed",
+      "coordinateNote": "官網地址與官方嵌圖門牌相符；具名Google Maps店家陣列為Wanba Restaurant、338號，採店家實體座標，非地圖視窗中心。",
+      "longIntro": "位在精誠路338號，提供台菜與海鮮合菜，官網列有海鮮魚羹、古早味米糕與法式炸吐司。"
+    },
+    {
+      "id": "sea-breeze",
+      "name": "海風咖啡",
+      "categories": [
+        "餐廳",
+        "咖啡店"
+      ],
+      "address": "臺東市大同路80號",
+      "lat": 22.7515749,
+      "lng": 121.1553154,
+      "tags": [
+        "義大利麵",
+        "焗烤飯",
+        "客家鹹豬肉"
+      ],
+      "description": "提供義大利麵、焗烤飯與客家鹹豬肉燉飯。",
+      "hours": {
+        "0": [],
+        "1": [
+          [
+            "08:00",
+            "17:00"
+          ]
+        ],
+        "2": [
+          [
+            "08:00",
+            "17:00"
+          ]
+        ],
+        "3": [
+          [
+            "08:00",
+            "17:00"
+          ]
+        ],
+        "4": [
+          [
+            "08:00",
+            "17:00"
+          ]
+        ],
+        "5": [
+          [
+            "08:00",
+            "17:00"
+          ]
+        ],
+        "6": [
+          [
+            "08:00",
+            "17:00"
+          ]
+        ]
+      },
+      "hoursText": "週一至週六08:00–17:00；週日公休。",
+      "officialUrl": "https://slowfoodtaitung.tw/restaurant/海風咖啡",
+      "sources": [
+        {
+          "label": "臺東縣政府慢食店家介紹",
+          "url": "https://slowfoodtaitung.tw/restaurant/海風咖啡"
+        }
+      ],
+      "price": null,
+      "checkedAt": "2026-11-04",
+      "exceptions": {},
+      "coordinateSource": "https://goo.gl/maps/eqEEn4JcGUd29V6p9",
+      "coordinateNote": "政府店家頁直接連結此Google Maps店家標記；採重新導向網址的!3d/!4d店家座標，不採@後的視窗中心。",
+      "longIntro": "位在大同路80號，提供義大利麵、焗烤飯，並以關山米製作客家鹹豬肉白醬燉飯，將客家風味結合西式料理。"
+    },
+    {
+      "id": "wonderful-pod",
+      "name": "台東有知鳥",
+      "categories": [
+        "餐廳"
+      ],
+      "address": "臺東市中興路二段191號，東糖文創園區萬富倉庫2樓",
+      "lat": 22.7668144,
+      "lng": 121.1269661,
+      "tags": [
+        "東糖園區",
+        "檸檬雞腿",
+        "在地食材"
+      ],
+      "description": "東糖園區萬富倉庫二樓的料理空間。",
+      "hours": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [
+          [
+            "09:00",
+            "17:30"
+          ]
+        ],
+        "5": [
+          [
+            "09:00",
+            "17:30"
+          ]
+        ],
+        "6": [
+          [
+            "09:00",
+            "17:30"
+          ]
+        ]
+      },
+      "hoursText": "週四至週六09:00–17:30；週日至週三休息。",
+      "officialUrl": "https://slowfoodtaitung.tw/restaurant/台東有知鳥",
+      "sources": [
+        {
+          "label": "臺東縣政府慢食店家介紹",
+          "url": "https://slowfoodtaitung.tw/restaurant/台東有知鳥"
+        }
+      ],
+      "price": null,
+      "checkedAt": "2026-11-04",
+      "exceptions": {},
+      "coordinateSource": "https://goo.gl/maps/zEe79wZycHhimsi48",
+      "coordinateNote": "政府店家頁直接連結此Google Maps店家標記；採重新導向網址的!3d/!4d店家座標，不採@後的視窗中心。",
+      "longIntro": "位在東糖文創園區萬富倉庫二樓，料理特色包括以自製醃黃檸檬醃漬後香煎的雞腿，將食材與生活創作結合。"
     }
   ]
 }
